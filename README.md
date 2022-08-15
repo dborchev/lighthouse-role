@@ -1,22 +1,25 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Этот плейбук скачивает и устанавливает на целевые хосты группы [LightHouse](https://github.com/VKCOM/lighthouse)
+* LightHouse всегда последней версии из репозитория, обслуживается nginx последней версии доступной в EPEL
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Требуется хоть какой-то веб-сервер, например [nginx](https://galaxy.ansible.com/nginxinc/nginx_core)/
+Эта роль только скачивает lighthouse в `{{ document_root }}/lighthouse-master`.
+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+* используя `document_root` можно указать альтернативный путь распаковки LightHouse
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+
 
 Example Playbook
 ----------------
@@ -25,7 +28,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: dborchev.lighthouse-role
 
 License
 -------
@@ -34,5 +37,4 @@ BSD
 
 Author Information
 ------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+N/A

@@ -1,2 +1,9 @@
 ---
-# tasks file for lighthouse-role
+- name: Get and Unpack Lighthouse
+  become: true
+  ansible.builtin.unarchive:
+    src: "https://github.com/VKCOM/lighthouse/archive/refs/heads/master.zip"
+    dest: "{{ document_root }}"
+    remote_src: true
+    owner: ec2-user
+    mode: 0644
